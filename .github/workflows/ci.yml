@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        domain: ["pl", "sk", "hu", "cz"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Run Playwright tests
+        run: SITE_DOMAIN=${{ matrix.domain }} npx playwright test --workers=2
