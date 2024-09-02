@@ -34,7 +34,7 @@ The project requires the following dependencies:
 
 To install the project, first clone the repository from GitHub.
 
-git clone [placeholder_link]
+git clone git@github.com:MathiasS98/Travel-Planet-QA-Assignment.git
 
 Then install all necessary dependencies
 
