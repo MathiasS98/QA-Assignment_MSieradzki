@@ -9,7 +9,6 @@ export class VacationOfferDetailsPage extends BasePage {
   readonly url: RegExp;
   readonly expectedOfferTitleHeader: string;
   readonly expectedDestinationDetailsHeader: string;
-
   readonly destinationDetails: DestinationDetails;
 
   readonly offerTitleHeader: Locator = this.page.locator(
