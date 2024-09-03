@@ -46,9 +46,14 @@ This project uses environment variables for configuration. It is recommended to 
 
 - **SITE_DOMAIN**: The domain to run the tests on (e.g., `pl`, `cz`, `hu`, `sk`).
 
-Example `.env` file:
+To set up the environment variables for the project on your local environment, follow these steps:
 
-SITE_DOMAIN="pl"
+1. Copy the `.env.template` file to a new file named `.env`:
+   cp .env.template .env
+
+2. Open the .env file and fill in the required values.
+
+3. Save the file. The project will now use these settings when run locally.
 
 ## Running Tests
 

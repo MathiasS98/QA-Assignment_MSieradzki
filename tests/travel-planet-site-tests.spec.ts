@@ -49,12 +49,10 @@ test("Verify login form error message on incorrect credentials", async ({
 
 test("Search for vacations for week ahead", async ({ page, homePage }) => {
   const destinationCountry = "Egypt";
-
   const startDate = new Date();
   startDate.setDate(startDate.getDate() + 1);
   const nextWeekDate = new Date();
   nextWeekDate.setDate(startDate.getDate() + 8);
-
   const formattedStartDate = DateFormat.formatDateToString(startDate);
   const formattedNextWeekDate = DateFormat.formatDateToString(nextWeekDate);
 
@@ -67,11 +65,11 @@ test("Search for vacations for week ahead", async ({ page, homePage }) => {
     );
   await test.step("Verify redirection to vacations page", async () => {
     await expect(page).toHaveURL(new RegExp(vacationsPage.url));
-
     await expect(vacationsPage.searchResultsContainer).toBeVisible();
   });
   await test.step("Go to next page", async () => {
     await vacationsPage.goToNextPage();
+
     await expect(vacationsPage.searchResultsContainer).toBeVisible();
     await expect(vacationsPage.currentPageButton).toContainText("2");
   });
@@ -81,18 +79,10 @@ test("Search for vacations for week ahead", async ({ page, homePage }) => {
     );
 
     await expect(page).toHaveURL(new RegExp(vacationOfferDetailsPage.url));
-
-    const offerTitleHeaderText =
-      await vacationOfferDetailsPage.offerTitleHeader.textContent();
-
-    expect
-      .soft(offerTitleHeaderText)
-      .toBe(vacationOfferDetailsPage.expectedOfferTitleHeader);
-
-    const offerDestinationHeaderText =
-      await vacationOfferDetailsPage.offerDestinationHeader.textContent();
-
-    expect(offerDestinationHeaderText).toContain(
+    await expect(vacationOfferDetailsPage.offerTitleHeader).toHaveText(
+      vacationOfferDetailsPage.expectedOfferTitleHeader
+    );
+    await expect(vacationOfferDetailsPage.offerDestinationHeader).toContainText(
       vacationOfferDetailsPage.expectedDestinationDetailsHeader
     );
   });

@@ -8,7 +8,6 @@ import { HeaderTopMenuComponent } from "@components/header-top-menu.component";
 
 export class HomePage extends BasePage {
   readonly url: string | RegExp;
-  readonly domain: Domain;
 
   readonly cookiesDialog: Locator = this.page.locator(
     "#CybotCookiebotDialogHeader"

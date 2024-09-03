@@ -3,8 +3,8 @@ import { Domain } from "@models/domain.type";
 
 export abstract class BasePage {
   protected readonly url: string | RegExp;
-  protected readonly page: Page;
-  protected readonly domain: Domain;
+  protected page: Page;
+  protected domain: Domain;
 
   constructor(page: Page, domain: Domain) {
     this.page = page;
